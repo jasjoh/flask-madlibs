@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Madlibs! {% endblock %}
+
+{% block content %}
+
+<h1 class="pt-4 mb-3 text-center">Choose Story</h1>
+
+<div class="ms-3 me-3">
+  <form action="/questions" class="pb-4">
+    <select id="StorySelector" class="w-100 form-select" name="story">
+      <!-- story is a {story_id: story} -->
+    {% for story_id_to_name in story_id_to_names %}
+      <!-- DROP DOWN MENU -->
+      <option name="{{ story_id_to_name[0] }}" value="{{ story_id_to_name[0] }}">{{ story_id_to_name[1] }}</option>
+    {% endfor %}
+    </select>
+    <button class="btn btn-primary btn-lg w-100">
+      Continue to Questions!
+    </button>
+  </form>
+</div>
+
+{% endblock %}
